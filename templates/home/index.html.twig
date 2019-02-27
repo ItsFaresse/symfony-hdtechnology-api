@@ -1,0 +1,157 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}HD Technology - Accueil{% endblock %}
+
+{% block body %}
+
+    <style>
+        .btn:hover { color: white;}
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+
+    </style>
+
+    <main class="mt-5 pt-5">
+        <div class="container">
+
+            <!--Section: Jumbotron-->
+            <section class="card wow fadeIn" style="background-color: #708dcf;">
+
+                <!-- Content -->
+                <div class="card-body text-white text-center py-5 px-5 my-5">
+
+                    <h1 class="mb-4">
+                        <strong>Rejoins-nous sur Discord!</strong>
+                    </h1>
+                    <p>
+                        <strong>Une communauté francophone pour se faire des amis!</strong>
+                    </p>
+                    <p class="mb-4">
+                        <strong>Nous sommes 4000 utilisateurs actifs, si tu as des questions n'hésite pas à nous en faire part!</strong>
+                    </p>
+                    <a href="#" class="btn purple-gradient btn-lg">Discord
+                        <i class="fab fa-discord"></i>
+                    </a>
+
+                </div>
+                <!-- Content -->
+            </section>
+            <!--Section: Jumbotron-->
+            <hr class="my-5">
+            <!--Section: Cards-->
+            <section class="text-center">
+                <!--Grid row-->
+                <div class="row mb-4 wow fadeIn">
+                    <!--Grid column-->
+                    {% for article in articles %}
+                    <div class="col-lg-4 col-md-12 mb-4">
+                        <!--Card-->
+                        <div class="card">
+                            <!--Card image-->
+                            <div class="view overlay">
+                                <div class="embed-responsive embed-responsive-16by9 rounded-top">
+                                    {% if article.image  %}
+                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Fhu9rJKVgIo" allowfullscreen></iframe>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <!--Card content-->
+                            <div class="card-body">
+                                <!--Title-->
+                                <h4 class="card-title">{{ article.name }}</h4>
+                                <!--Text-->
+                                <p class="card-text">{{ article.content }}</p>
+                            </div>
+                            <a href="{{ path('show') }}" class="btn blue-gradient btn-sm">Lire</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    </div>
+                <!--Pagination-->
+                <nav class="d-flex justify-content-center wow fadeIn">
+                    <ul class="pagination pg-blue">
+                        <!--Arrow left-->
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Précédent</span>
+                            </a>
+                        </li>
+                        <li class="page-item active">
+                            <a class="page-link" href="#">1
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">4</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">5</a>
+                        </li>
+
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Suivant</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!--Pagination-->
+
+            </section>
+            <!--Section: Cards-->
+
+        </div>
+    </main>
+    <footer class="page-footer text-center font-small mdb-color darken-2 mt-4 wow fadeIn">
+
+        <!--Call to action-->
+        <div class="pt-4">
+            <a class="btn btn-outline-white" href="#" role="button">Nous contacter
+                <i class="fas fa-graduation-cap ml-2"></i>
+            </a>
+        </div>
+        <!--/.Call to action-->
+
+        <hr class="my-4">
+
+        <!-- Social icons -->
+        <div class="pb-4">
+            <a href="#" target="_blank">
+                <i class="fab fa-facebook-f mr-3"></i>
+            </a>
+            <a href="#" target="_blank">
+                <i class="fab fa-twitter mr-3"></i>
+            </a>
+            <a href="#" target="_blank">
+                <i class="fab fa-youtube mr-3"></i>
+            </a>
+            <a href="#" target="_blank">
+                <i class="fab fa-google-plus-g mr-3"></i>
+            </a>
+            <a href="#" target="_blank">
+                <i class="fab fa-dribbble mr-3"></i>
+            </a>
+            <a href="#" target="_blank">
+                <i class="fab fa-pinterest mr-3"></i>
+            </a>
+            <a href="#" target="_blank">
+                <i class="fab fa-github mr-3"></i>
+            </a>
+            <a href="#" target="_blank">
+                <i class="fab fa-codepen mr-3"></i>
+            </a>
+        </div>
+        <div class="footer-copyright py-3">
+            © 2018 Copyright:
+            <a href="#" target="_blank"> Faresse </a>
+        </div>
+    </footer>
+{% endblock %}

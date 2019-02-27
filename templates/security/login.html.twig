@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Se connecter - HD Technology{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        {% if error %}
+            <div class="alert alert-danger">
+                {{ error.messageKey | trans(error.messageData, 'security')}}
+            </div>
+        {% endif %}
+        <div class="md-form">
+            <form action="{{ path('login') }}" method="post" class="text-center">
+                <div class="md-form form-lg">
+                    <label for="username"></label>
+                    <input type="text" id="username" name="_username" class="form-control mb-4" placeholder="Pseudo" value="{{ last_username }}">
+                </div>
+                <div class="md-form form-lg">
+                    <label for="password"></label>
+                    <input type="password" id="password" name="_password" class="form-control mb-4" placeholder="Password">
+                </div>
+                <button type="submit" class="btn blue-gradient  my-4" style="color:white;">Se connecter</button>
+                <p>ou avec:</p>
+                <a class="light-blue-text mx-2">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a class="light-blue-text mx-2">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a class="light-blue-text mx-2">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a class="light-blue-text mx-2">
+                    <i class="fab fa-github"></i>
+                </a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

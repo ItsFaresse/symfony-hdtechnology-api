@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/mdb.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/style.min.css') }}">
+        {% endblock %}
+    </head>
+    <body>
+        <header>
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar" style="font-family: 'Futura Book', sans-serif">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand waves-effect" href="{{ path('home') }}">
+                <strong class="blue-text">HD TECHNOLOGY</strong>
+                </a>
+                <!-- Responsive -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Liens -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Menu gauche -->
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                    <a class="nav-link waves-effect" href="#">Accueil
+                        <span class="sr-only">(current)</span>
+                    </a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link waves-effect" href="#">HD Technology</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link waves-effect" href="#">Nouveautés</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link waves-effect" href="#">Contact</a>
+                    </li>
+                </ul>
+                <!-- Menu droite -->
+
+                <ul class="navbar-nav nav-flex-icons">
+                    <li class="nav-item">
+                    <a href="https://www.instagram.com/itsfaresse" class="nav-link waves-effect" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    </li>
+                    <li class="nav-item">
+                    <a href="https://twitter.com/itsfaresse" class="nav-link waves-effect" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    </li>
+                    <li class="nav-item">
+                    <a href="https://github.com/itsfaresse" class="nav-link border border-light rounded waves-effect"
+                        target="_blank">
+                        <i class="fab fa-github mr-2"></i>ItsFaresse
+                    </a>
+                    </li>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <li class="nav-item">
+                        <a href="{{ path('logout') }}" class="nav-link"> Déconnexion</a>
+                    </li>
+                </ul>
+                </div>
+                {% else %}
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="{{ path('login') }}" class="nav-link"> Connexion</a>
+                        </li>
+                    </ul>
+                {% endif %}
+            </div>
+            </nav>
+            </header>
+    <!-- Navbar -->
+    <hr class="my-5">
+        {% block body %}
+            
+        {% endblock %}
+        {% block javascripts %}
+            <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+            <!-- Bootstrap tooltips -->
+            <script type="text/javascript" src="js/popper.min.js"></script>
+            <!-- Bootstrap core JavaScript -->
+            <script type="text/javascript" src="js/bootstrap.min.js"></script>
+            <!-- MDB core JavaScript -->
+            <script type="text/javascript" src="js/mdb.min.js"></script>
+            <script type="text/javascript">
+                new WOW().init();
+            </script>
+        {% endblock %}
+    </body>
+</html>
